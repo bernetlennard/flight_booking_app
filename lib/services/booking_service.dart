@@ -3,8 +3,10 @@ import 'package:http/http.dart' as http;
 import '../models/booking_request.dart';
 import '../models/booking_response.dart';
 
+import '../utils/constants.dart';
+
 class BookingService {
-  static const String baseUrl = 'http://10.0.2.2:8080';
+  static const String baseUrl = Constants.baseUrl;
 
   Future<BookingResponse> createBooking(int flightId, String token) async {
     final bookingRequest = BookingRequest(flightId: flightId);

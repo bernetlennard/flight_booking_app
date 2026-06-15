@@ -7,8 +7,10 @@ import '../models/user_registration.dart';
 import '../models/auth_request.dart';
 import '../models/auth_response.dart';
 
+import '../utils/constants.dart';
+
 class AuthService with ChangeNotifier {
-  static const String baseUrl = 'http://10.0.2.2:8080';
+  static const String baseUrl = Constants.baseUrl;
   final _storage = const FlutterSecureStorage();
   
   String? _token;

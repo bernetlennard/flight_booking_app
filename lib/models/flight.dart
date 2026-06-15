@@ -36,6 +36,17 @@ class LocalTime {
   String toString() {
     return '${hour.toString().padLeft(2, '0')}:${minute.toString().padLeft(2, '0')}';
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'hour': hour,
+      'minute': minute,
+      'second': second,
+      'nano': nano,
+    };
+  }
+
+  int toMinutes() => hour * 60 + minute;
 }
 
 class Flight {
@@ -70,5 +81,18 @@ class Flight {
       price: (json['price'] ?? 0).toDouble(),
       availableTickets: json['availableTickets'] ?? 0,
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'departureLocation': departureLocation,
+      'arrivalLocation': arrivalLocation,
+      'departureDate': departureDate,
+      'departureTime': departureTime.toJson(),
+      'airline': airline,
+      'price': price,
+      'availableTickets': availableTickets,
+    };
   }
 }
